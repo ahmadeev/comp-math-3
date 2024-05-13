@@ -13,17 +13,8 @@ public class Main {
         int n = 5;
         double a = 1;
         double b = 2;
-        int methodNumber = 2;
+        int methodNumber = 3;   //  0-4
 
-        System.out.println("Для функции: " + function.toString());
-
-        rectangleLoop(methodNumber, precision, function, n, a, b);
-
-        //rectangles(function, precision);
-
-        //trapeze(function, precision);
-
-        //simpson(function, precision);
-
+        System.out.println(getAnyMethodLoop(methodNumber, precision, function, n, a, b));
     }
 }
