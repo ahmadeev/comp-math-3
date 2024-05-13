@@ -13,10 +13,11 @@ public class Main {
         int n = 5;
         double a = 1;
         double b = 2;
+        int methodNumber = 2;
 
         System.out.println("Для функции: " + function.toString());
 
-        leftRectangleLoop(precision, function, n, a, b);
+        rectangleLoop(methodNumber, precision, function, n, a, b);
 
         //rectangles(function, precision);
 

@@ -2,7 +2,7 @@ package math;
 
 public class Methods {
 
-    public static double rectangleMethodValue(int number, Function function, int n, double a, double b) throws Exception {
+    public static double rectangleMethodValue(int number, Function function, int n, double a, double b) {
         switch (number) {
             case 0: {
                 return leftRectangle(function, n, a, b);
@@ -10,11 +10,8 @@ public class Methods {
             case 1: {
                 return rightRectangle(function, n, a, b);
             }
-            case 2: {
-                return centerRectangle(function, n, a, b);
-            }
             default: {
-                throw new Exception();
+                return centerRectangle(function, n, a, b);
             }
         }
     }
@@ -58,23 +55,16 @@ public class Methods {
         return result;
     }
 
-    public static void leftRectangleLoop(double precision, Function function, int n, double a, double b) {
-        double prevResult = leftRectangle(function, n, a, b);
+    public static void rectangleLoop(int methodNumber, double precision, Function function, int n, double a, double b) {
+        double prevResult = rectangleMethodValue(methodNumber, function, n, a, b);
         n *= 2;
-        double result = leftRectangle(function, n, a, b);
+        double result = rectangleMethodValue(methodNumber, function, n, a, b);
 
         while ((result - prevResult) / (Math.pow(2, 2) - 1) >= precision) {
             prevResult = result;
             n *= 2;
-            result = leftRectangle(function, n, a, b);
+            result = rectangleMethodValue(methodNumber, function, n, a, b);
         }
-    }
-
-    public static void rectangles(Function function, double precision) {
-        int n = 5;
-        double a = 1;
-        double b = 2;
-        double h = (b - a) / n;
     }
 
     public static void trapeze(Function function, double precision) {
