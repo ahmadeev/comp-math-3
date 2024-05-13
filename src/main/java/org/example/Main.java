@@ -23,7 +23,7 @@ public class Main {
         if (breakpoints.size() == 0) {
             System.out.println(getAnyMethodLoop(methodNumber, precision, function, n, a, b));
         } else {
-            System.out.println("Есть точка (точки) разрыва!");
+            System.out.println("Есть точка (точки) разрыва!\n");
             if (a * b < 0) {
                 if (Math.abs(a) > Math.abs(b)) b = -b;
                 else a = -a;

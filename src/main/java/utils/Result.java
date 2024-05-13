@@ -2,6 +2,8 @@ package utils;
 
 import math.Function;
 
+import static utils.Utils.getMethodNameByItsNumber;
+
 public class Result {
     private Function function;
     private int methodNumber;
@@ -69,11 +71,11 @@ public class Result {
 
     @Override
     public String toString() {
-        return  "function: " + function + "\n" +
-                "method: " + methodNumber + "\n" +
-                "value: " + value + "\n" +
-                "n: " + n + "\n" +
-                "precision: " + precision + "\n" +
-                "error: " + error + "\n";
+        return  "Выбранная функция: ( " + function + " )\n" +
+                "Выбранный метод: " + getMethodNameByItsNumber(methodNumber) + "\n" +
+                "Вычисленное значение: " + value + "\n" +
+                "Количество разбиений: " + n + "\n" +
+                "Точность вычисления: " + precision + "\n" +
+                "Погрешность: " + error + "\n";
     }
 }
