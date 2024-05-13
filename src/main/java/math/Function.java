@@ -15,7 +15,7 @@ public abstract class Function {
         }
     }
 
-    public static class FunctionTwo {
+    public static class FunctionTwo extends Function {
         public double getFunctionValue(double x) {
             return x * x * x;
         }
@@ -23,6 +23,17 @@ public abstract class Function {
         @Override
         public String toString() {
             return "x^3";
+        }
+    }
+
+    public static class FunctionThree extends Function {
+        public double getFunctionValue(double x) {
+            return 1 / x;
+        }
+
+        @Override
+        public String toString() {
+            return "1 / x";
         }
     }
 }
