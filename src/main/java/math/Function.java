@@ -36,4 +36,15 @@ public abstract class Function {
             return "1 / x";
         }
     }
+
+    public static class FunctionFour extends Function {
+        public double getFunctionValue(double x) {
+            return 1 / (x * x);
+        }
+
+        @Override
+        public String toString() {
+            return "1 / x^2";
+        }
+    }
 }

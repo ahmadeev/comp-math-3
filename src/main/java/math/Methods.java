@@ -2,6 +2,8 @@ package math;
 
 import utils.Result;
 
+import java.util.HashSet;
+
 public class Methods {
 
     public static double getValueUsingMethod(int number, Function function, int n, double a, double b) {
@@ -108,6 +110,55 @@ public class Methods {
         }
 
         return new Result(function, methodNumber, result, n, precision, Math.abs(result - prevResult));
+    }
+
+    public static HashSet<Double> getBreakpoints(Function function, int n, double a, double b) {
+        HashSet<Double> breakpoints = new HashSet<>();
+        double temp;
+
+        try {
+            temp = function.getFunctionValue(a);
+            if (Double.isInfinite(temp)) breakpoints.add(a);
+        } catch (ArithmeticException e) {
+            breakpoints.add(a);
+        }
+        try {
+            temp = function.getFunctionValue(b);
+            if (Double.isInfinite(temp)) breakpoints.add(b);
+        } catch (ArithmeticException e) {
+            breakpoints.add(b);
+        }
+        try {
+            temp = function.getFunctionValue((a + b) / 2);
+            if (Double.isInfinite(temp)) breakpoints.add((a + b) / 2);
+        } catch (ArithmeticException e) {
+            breakpoints.add((a + b) / 2);
+        }
+
+        double h = (b - a) / n;
+
+        for (int i = 1; i < n; i++) {
+            double x = a + h * i;
+            try {
+                temp = function.getFunctionValue(x);
+                if (Double.isInfinite(temp)) breakpoints.add(x);
+            } catch (ArithmeticException e) {
+                breakpoints.add(x);
+            }
+        }
+
+        double step = 0.01;
+        for (double i = 1; a + i * step <= b; i++) {
+            double x = a + step * i;
+            try {
+                temp = function.getFunctionValue(x);
+                if (Double.isInfinite(temp)) breakpoints.add(x);
+            } catch (ArithmeticException e) {
+                breakpoints.add(x);
+            }
+        }
+
+        return breakpoints;
     }
 
 }
