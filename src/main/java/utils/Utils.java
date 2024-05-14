@@ -31,18 +31,21 @@ public class Utils {
     }
 
     public static Function getFunctionByItsNumber(int number) {
-        switch (number - 1) {
-            case 0: {
+        switch (number) {
+            case 1: {
                 return new Function.FunctionOne();
             }
-            case 1: {
+            case 2: {
                 return new Function.FunctionTwo();
             }
-            case 2: {
+            case 3: {
                 return new Function.FunctionThree();
             }
-            case 3: {
+            case 4: {
                 return new Function.FunctionFour();
+            }
+            case 5: {
+                return new Function.FunctionFive();
             }
             default: {
                 return null;

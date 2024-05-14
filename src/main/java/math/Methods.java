@@ -8,19 +8,19 @@ public class Methods {
 
     public static double getValueUsingMethod(int number, Function function, int n, double a, double b) {
         switch (number) {
-            case 0: {
+            case 1: {
                 return leftRectangle(function, n, a, b);
             }
-            case 1: {
+            case 2: {
                 return rightRectangle(function, n, a, b);
             }
-            case 2: {
+            case 3: {
                 return centerRectangle(function, n, a, b);
             }
-            case 3: {
+            case 4: {
                 return trapeze(function, n, a, b);
             }
-            case 4: {
+            case 5: {
                 return simpson(function, n, a, b);
             }
             default: {

@@ -28,12 +28,12 @@ public abstract class Function {
 
     public static class FunctionThree extends Function {
         public double getFunctionValue(double x) {
-            return 1 / x;
+            return 1 / (x + 5);
         }
 
         @Override
         public String toString() {
-            return "1 / x";
+            return "1 / (x + 5)";
         }
     }
 
@@ -45,6 +45,17 @@ public abstract class Function {
         @Override
         public String toString() {
             return "1 / x^2";
+        }
+    }
+
+    public static class FunctionFive extends Function {
+        public double getFunctionValue(double x) {
+            return 1 / x;
+        }
+
+        @Override
+        public String toString() {
+            return "1 / x";
         }
     }
 }

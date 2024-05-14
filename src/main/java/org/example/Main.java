@@ -2,6 +2,8 @@ package org.example;
 
 import math.Function;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -41,19 +43,32 @@ public class Main {
                 System.out.println(getAnyMethodLoop(methodNumber, precision, function, n, a, b));
             } else {
                 System.out.println("Есть точка (точки) разрыва!\n");
-                if (a * b < 0) {
-                    if (Math.abs(a) > Math.abs(b)) b = -b;
-                    else a = -a;
 
-                    breakpoints.clear();
-                    breakpoints = getBreakpoints(function, n, a, b);
+                double breakpoint;
+                ArrayList<Double> breakpointsArray = new ArrayList<>(breakpoints);
+                if (breakpointsArray.size() == 1) {
+                    breakpoint = breakpointsArray.get(0);
 
-                    if (breakpoints.size() == 0) {
-                        System.out.println(getAnyMethodLoop(methodNumber, precision, function, n, a, b));
-                    } else {
-                        System.out.println("Точки разрыва сохраняются. Интеграл невозможно вычислить.\n");
+                    if (b - breakpoint > breakpoint - a) {
+                        a = breakpoint + (breakpoint - a);
+                    } else if ((b - breakpoint < breakpoint - a)) {
+                        b = breakpoint - (b - breakpoint);
+                    } else if (Math.abs(a) == Math.abs(b)) {
+                        a = b;
+                    }
+
+                    if (a <= b) {
+                        breakpoints.clear();
+                        breakpoints = getBreakpoints(function, n, a, b);
+
+                        if (breakpoints.size() == 0) {
+                            System.out.println(getAnyMethodLoop(methodNumber, precision, function, n, a, b));
+                        } else {
+                            System.out.println("Точки разрыва сохраняются. Интеграл невозможно вычислить.\n");
+                        }
                     }
                 }
+
             }
         }
     }

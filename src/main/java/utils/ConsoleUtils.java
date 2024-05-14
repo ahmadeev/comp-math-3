@@ -17,13 +17,14 @@ public class ConsoleUtils {
                         1. ( %s ),
                         2. ( %s ),
                         3. ( %s ),
-                        4. ( %s ).
-                        \n""", new Function.FunctionOne(), new Function.FunctionTwo(), new Function.FunctionThree(), new Function.FunctionFour());
+                        4. ( %s ),
+                        5. ( %s ).
+                        \n""", new Function.FunctionOne(), new Function.FunctionTwo(), new Function.FunctionThree(), new Function.FunctionFour(), new Function.FunctionFive());
         System.out.print("Выберите номер функции: ");
         try {
             objectCode = getNextInt(input);
             System.out.println();
-            if (!(objectCode == 1 | objectCode == 2 | objectCode == 3 | objectCode == 4)) {
+            if (!(objectCode == 1 | objectCode == 2 | objectCode == 3 | objectCode == 4 | objectCode == 5)) {
                 throw new InvalidInputException("Номер функции выбран неверно!");
             }
             return objectCode;
